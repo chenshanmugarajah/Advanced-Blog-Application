@@ -10,9 +10,10 @@ This project revolved around the using of the .NET core framework
 
 # Sprints
 ## Sprint 1
-Prepare all the needed files for the project and be ready to begin coding
-=== DOD Refinement
-=== New classes
+- Prepare all the needed files for the project and be ready to begin coding
+
++ DOD Refinement
++ Make folder and seperate files for Entity classes to better adhere to **S**OLID principles
 
 ### Project Cards
 - Database Creation

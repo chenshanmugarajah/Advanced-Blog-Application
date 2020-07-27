@@ -12,17 +12,17 @@ This project revolved around the using of the .NET core framework
 ## Sprint 1
 - Prepare all the needed files for the project and be ready to begin coding
 
-+ DOD Refinement
-+ Make folder and seperate files for Entity classes to better adhere to **S**OLID principles
-
 ### Project Cards
 - Database Creation
 - Create required Layers
 - Create CRUDManager
 
 ### Review
+Login and Register functionality have been added.
+Other CRUD operations have been started.
 
-Sprint has gone according to plan. Login and Register functionality have been added. Other CRUD operations have been started on track to finish off tomorrow.
++ DOD Refinement
++ Make folder and seperate files for Entity classes to better adhere to **S**OLID principles
 
 ### Retrospective
 **Start**

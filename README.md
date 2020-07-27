@@ -11,6 +11,8 @@ This project revolved around the using of the .NET core framework
 # Sprints
 ## Sprint 1
 Prepare all the needed files for the project and be ready to begin coding
+=== DOD Refinement
+=== New classes
 
 ### Project Cards
 - Database Creation

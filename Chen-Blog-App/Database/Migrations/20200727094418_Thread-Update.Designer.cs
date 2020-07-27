@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Model.Migrations
 {
     [DbContext(typeof(BloggingContext))]
-    [Migration("20200727090549_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200727094418_Thread-Update")]
+    partial class ThreadUpdate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,32 @@ namespace Model.Migrations
                 .HasAnnotation("ProductVersion", "3.1.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("Database.BlogThread", b =>
+                {
+                    b.Property<int>("BlogThreadId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BlogUserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Owner")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ThreadName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("BlogThreadId");
+
+                    b.HasIndex("BlogUserId");
+
+                    b.ToTable("BlogThreads");
+                });
 
             modelBuilder.Entity("Database.BlogUser", b =>
                 {
@@ -72,7 +98,10 @@ namespace Model.Migrations
                     b.Property<string>("Author")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("BlogUserId")
+                    b.Property<int?>("BlogThreadId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("BlogUserId")
                         .HasColumnType("int");
 
                     b.Property<int>("Likes")
@@ -87,39 +116,22 @@ namespace Model.Migrations
                     b.Property<int>("ThreadId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("PostId");
 
-                    b.HasIndex("BlogUserId");
+                    b.HasIndex("BlogThreadId");
 
-                    b.HasIndex("ThreadId");
+                    b.HasIndex("BlogUserId");
 
                     b.ToTable("Posts");
                 });
 
-            modelBuilder.Entity("Database.Thread", b =>
+            modelBuilder.Entity("Database.BlogThread", b =>
                 {
-                    b.Property<int>("ThreadId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("BlogUserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Owner")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ThreadId");
-
-                    b.HasIndex("BlogUserId");
-
-                    b.ToTable("Threads");
+                    b.HasOne("Database.BlogUser", "BlogUser")
+                        .WithMany("BlogThreads")
+                        .HasForeignKey("BlogUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Database.Comment", b =>
@@ -133,21 +145,12 @@ namespace Model.Migrations
 
             modelBuilder.Entity("Database.Post", b =>
                 {
+                    b.HasOne("Database.BlogThread", "BlogThread")
+                        .WithMany("Posts")
+                        .HasForeignKey("BlogThreadId");
+
                     b.HasOne("Database.BlogUser", "BlogUser")
                         .WithMany("Posts")
-                        .HasForeignKey("BlogUserId");
-
-                    b.HasOne("Database.Thread", "Thread")
-                        .WithMany("Posts")
-                        .HasForeignKey("ThreadId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Database.Thread", b =>
-                {
-                    b.HasOne("Database.BlogUser", "BlogUser")
-                        .WithMany("Threads")
                         .HasForeignKey("BlogUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

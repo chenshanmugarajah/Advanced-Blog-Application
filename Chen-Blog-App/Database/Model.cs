@@ -8,7 +8,7 @@ namespace Database
     public class BloggingContext : DbContext
     {
         public DbSet<BlogUser> BlogUsers { get; set; }
-        public DbSet<Thread> Threads { get; set; }
+        public DbSet<BlogThread> BlogThreads { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Comment> Comments { get; set; }
 
@@ -23,13 +23,14 @@ namespace Database
         public string Email { get; set; }
         public string Passowrd { get; set; }
         public List<Post> Posts { get; } = new List<Post>();
-        public List<Thread> Threads { get; } = new List<Thread>();
+        public List<BlogThread> BlogThreads { get; } = new List<BlogThread>();
 
     }
 
-    public class Thread
+    public partial class BlogThread
     {
-        public int ThreadId { get; set; }
+        public int BlogThreadId { get; set; }
+        public string ThreadName { get; set; }
         public string Description { get; set; }
         public string Owner { get; set; }
         public List<Post> Posts { get; } = new List<Post>();
@@ -39,7 +40,7 @@ namespace Database
 
     }
 
-    public class Post
+    public partial class Post
     {
         public int PostId { get; set; }
         public string PostTitle { get; set; }
@@ -47,11 +48,11 @@ namespace Database
         public string Author { get; set; }
         public int Likes { get; set; }
 
-        public int UserId { get; set; }
+        public int BlogUserId { get; set; }
         public BlogUser BlogUser { get; set; }
 
         public int ThreadId { get; set; }
-        public Thread Thread { get; set; }
+        public BlogThread BlogThread { get; set; }
 
         public List<Comment> Comments { get; } = new List<Comment>();
 

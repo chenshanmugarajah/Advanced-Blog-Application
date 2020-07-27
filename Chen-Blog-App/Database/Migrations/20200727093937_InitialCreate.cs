@@ -22,10 +22,10 @@ namespace Model.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Threads",
+                name: "BlogThreads",
                 columns: table => new
                 {
-                    ThreadId = table.Column<int>(nullable: false)
+                    BlogThreadId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Description = table.Column<string>(nullable: true),
                     Owner = table.Column<string>(nullable: true),
@@ -33,9 +33,9 @@ namespace Model.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Threads", x => x.ThreadId);
+                    table.PrimaryKey("PK_BlogThreads", x => x.BlogThreadId);
                     table.ForeignKey(
-                        name: "FK_Threads_BlogUsers_BlogUserId",
+                        name: "FK_BlogThreads_BlogUsers_BlogUserId",
                         column: x => x.BlogUserId,
                         principalTable: "BlogUsers",
                         principalColumn: "BlogUserId",
@@ -52,24 +52,24 @@ namespace Model.Migrations
                     PostContent = table.Column<string>(nullable: true),
                     Author = table.Column<string>(nullable: true),
                     Likes = table.Column<int>(nullable: false),
-                    UserId = table.Column<int>(nullable: false),
-                    BlogUserId = table.Column<int>(nullable: true),
-                    ThreadId = table.Column<int>(nullable: false)
+                    BlogUserId = table.Column<int>(nullable: false),
+                    ThreadId = table.Column<int>(nullable: false),
+                    BlogThreadId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Posts", x => x.PostId);
                     table.ForeignKey(
+                        name: "FK_Posts_BlogThreads_BlogThreadId",
+                        column: x => x.BlogThreadId,
+                        principalTable: "BlogThreads",
+                        principalColumn: "BlogThreadId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
                         name: "FK_Posts_BlogUsers_BlogUserId",
                         column: x => x.BlogUserId,
                         principalTable: "BlogUsers",
                         principalColumn: "BlogUserId",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Posts_Threads_ThreadId",
-                        column: x => x.ThreadId,
-                        principalTable: "Threads",
-                        principalColumn: "ThreadId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -94,23 +94,23 @@ namespace Model.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_BlogThreads_BlogUserId",
+                table: "BlogThreads",
+                column: "BlogUserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Comments_PostId",
                 table: "Comments",
                 column: "PostId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Posts_BlogThreadId",
+                table: "Posts",
+                column: "BlogThreadId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Posts_BlogUserId",
                 table: "Posts",
-                column: "BlogUserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Posts_ThreadId",
-                table: "Posts",
-                column: "ThreadId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Threads_BlogUserId",
-                table: "Threads",
                 column: "BlogUserId");
         }
 
@@ -123,7 +123,7 @@ namespace Model.Migrations
                 name: "Posts");
 
             migrationBuilder.DropTable(
-                name: "Threads");
+                name: "BlogThreads");
 
             migrationBuilder.DropTable(
                 name: "BlogUsers");

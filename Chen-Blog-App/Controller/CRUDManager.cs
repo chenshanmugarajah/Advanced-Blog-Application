@@ -52,6 +52,8 @@ namespace Controller
             }
         }
 
+        public string
+
         public string logoutUser()
         {
             if (CurrentUser != null)

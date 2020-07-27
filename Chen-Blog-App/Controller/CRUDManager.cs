@@ -26,7 +26,7 @@ namespace Controller
             using (var db = new BloggingContext())
             {
                 db.BlogUsers.Add(user);
-
+                db.SaveChanges();
                 return $"Sucessfully registered {username}";
             }
 
@@ -42,7 +42,8 @@ namespace Controller
                 {
                     if (doesExist.Passowrd == password)
                     {
-                        setCurrentUser(doesExist);
+                        CurrentUser cu = new CurrentUser{ Username = username, Passowrd = password };
+                        db.CurrentUsers.Add(cu);
                         return "Sucessfully logged in";
                     }
                 }

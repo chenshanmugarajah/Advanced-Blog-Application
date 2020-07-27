@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controller;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +19,18 @@ namespace View.Views
     /// </summary>
     public partial class BlueView : UserControl
     {
+        CRUDManager cm = new CRUDManager();
+
         public BlueView()
         {
             InitializeComponent();
+            try
+            {
+                DeleteMeLabel.Content = cm.CurrentUser.Username;
+            } catch (Exception e)
+            {
+                DeleteMeLabel.Content = "Not logged in";
+            }
         }
     }
 }

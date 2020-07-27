@@ -7,6 +7,29 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="Red">
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <TextBox x:Name="LoginUsername" Text="Username" Grid.Row="1" Grid.Column="0"/>
+        <TextBox x:Name="LoginPassword" Text="Password" Grid.Row="2" Grid.Column="0"/>
+        <Button x:Name="Login" Content="Login" Grid.Row="3" Grid.Column="0" Click="Login_Click"/>
+
+        <TextBox x:Name="RegisterUsername" Text="Username" Grid.Row="1" Grid.Column="1"/>
+        <TextBox x:Name="RegisterEmail" Text="Email" Grid.Row="2" Grid.Column="1"/>
+        <TextBox x:Name="RegisterPassword" Text="Password" Grid.Row="3" Grid.Column="1"/>
+        <TextBox x:Name="RegisterCPassword" Text="Confirm Password" Grid.Row="4" Grid.Column="1"/>
+        <Button x:Name="Register" Content="Register" Grid.Row="5" Grid.Column="1" Click="Register_Click"/>
+
     </Grid>
 </UserControl>

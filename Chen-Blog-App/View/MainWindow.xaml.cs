@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using View.ViewModels;
 
 namespace View
 {
@@ -25,5 +26,14 @@ namespace View
             InitializeComponent();
         }
 
+        private void RedView_Clicked(object sender, RoutedEventArgs e)
+        {
+            DataContext = new RedViewModel();
+        }
+
+        private void BlueView_Clicked(object sender, RoutedEventArgs e)
+        {
+            DataContext = new BlueViewModel();
+        }
     }
 }

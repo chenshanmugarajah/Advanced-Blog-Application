@@ -12,8 +12,18 @@ namespace Database
         public DbSet<Post> Posts { get; set; }
         public DbSet<Comment> Comments { get; set; }
 
+        public DbSet<CurrentUser> CurrentUsers { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB; Initial Catalog=Chen-Blog-App;");
+    }
+
+    public class CurrentUser
+    {
+        public int CurrentUserId { get; set; }
+        public string Username { get; set; }
+        public string Email { get; set; }
+        public string Passowrd { get; set; }
     }
 
     public class BlogUser

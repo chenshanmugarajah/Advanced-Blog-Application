@@ -12,6 +12,8 @@ namespace Controller
         public BlogThread SelectedThread { get; set; } // user selected thread
         public Post SelectedPost { get; set; } // user selected post
 
+
+
         public string createUser(string username, string email, string password, string passwordConfirm)
         {
             if (password != passwordConfirm)
@@ -24,7 +26,7 @@ namespace Controller
             using (var db = new BloggingContext())
             {
                 db.BlogUsers.Add(user);
-
+                db.SaveChanges();
                 return $"Sucessfully registered {username}";
             }
 
@@ -40,6 +42,8 @@ namespace Controller
                 {
                     if (doesExist.Passowrd == password)
                     {
+                        CurrentUser cu = new CurrentUser{ Username = username, Passowrd = password };
+                        db.CurrentUsers.Add(cu);
                         return "Sucessfully logged in";
                     }
                 }
@@ -48,10 +52,24 @@ namespace Controller
             }
         }
 
+        public string logoutUser()
+        {
+            if (CurrentUser != null)
+            {
+                CurrentUser = null;
+                return "Logged out";
+            }
+
+            return "No one logged in";
+        }
+
         public void setCurrentUser (object item)
         {
-            CurrentUser == (BlogUser)item;
+            CurrentUser = (BlogUser)item;
         }
+
+
+
 
         public List<BlogThread> getAllPosts()
         {

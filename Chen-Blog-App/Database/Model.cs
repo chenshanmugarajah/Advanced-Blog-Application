@@ -7,7 +7,7 @@ namespace Database
 {
     public class BloggingContext : DbContext
     {
-        public DbSet<User> Users { get; set; }
+        public DbSet<BlogUser> BlogUsers { get; set; }
         public DbSet<Thread> Threads { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Comment> Comments { get; set; }
@@ -16,9 +16,9 @@ namespace Database
             => options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB; Initial Catalog=Chen-Blog-App;");
     }
 
-    public class User
+    public class BlogUser
     {
-        public int UserId { get; set; }
+        public int BlogUserId { get; set; }
         public string Username { get; set; }
         public string Email { get; set; }
         public string Passowrd { get; set; }
@@ -34,8 +34,8 @@ namespace Database
         public string Owner { get; set; }
         public List<Post> Posts { get; } = new List<Post>();
 
-        public int UserId { get; set; }
-        public User User { get; set; }
+        public int BlogUserId { get; set; }
+        public BlogUser BlogUser { get; set; }
 
     }
 
@@ -48,7 +48,7 @@ namespace Database
         public int Likes { get; set; }
 
         public int UserId { get; set; }
-        public User User { get; set; }
+        public BlogUser BlogUser { get; set; }
 
         public int ThreadId { get; set; }
         public Thread Thread { get; set; }

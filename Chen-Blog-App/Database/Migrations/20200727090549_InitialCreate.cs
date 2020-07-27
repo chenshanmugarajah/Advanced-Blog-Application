@@ -7,10 +7,10 @@ namespace Model.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Users",
+                name: "BlogUsers",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(nullable: false)
+                    BlogUserId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Username = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
@@ -18,7 +18,7 @@ namespace Model.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.UserId);
+                    table.PrimaryKey("PK_BlogUsers", x => x.BlogUserId);
                 });
 
             migrationBuilder.CreateTable(
@@ -29,16 +29,16 @@ namespace Model.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Description = table.Column<string>(nullable: true),
                     Owner = table.Column<string>(nullable: true),
-                    UserId = table.Column<int>(nullable: false)
+                    BlogUserId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Threads", x => x.ThreadId);
                     table.ForeignKey(
-                        name: "FK_Threads_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "UserId",
+                        name: "FK_Threads_BlogUsers_BlogUserId",
+                        column: x => x.BlogUserId,
+                        principalTable: "BlogUsers",
+                        principalColumn: "BlogUserId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -53,22 +53,23 @@ namespace Model.Migrations
                     Author = table.Column<string>(nullable: true),
                     Likes = table.Column<int>(nullable: false),
                     UserId = table.Column<int>(nullable: false),
+                    BlogUserId = table.Column<int>(nullable: true),
                     ThreadId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Posts", x => x.PostId);
                     table.ForeignKey(
+                        name: "FK_Posts_BlogUsers_BlogUserId",
+                        column: x => x.BlogUserId,
+                        principalTable: "BlogUsers",
+                        principalColumn: "BlogUserId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
                         name: "FK_Posts_Threads_ThreadId",
                         column: x => x.ThreadId,
                         principalTable: "Threads",
                         principalColumn: "ThreadId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Posts_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -98,19 +99,19 @@ namespace Model.Migrations
                 column: "PostId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Posts_BlogUserId",
+                table: "Posts",
+                column: "BlogUserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Posts_ThreadId",
                 table: "Posts",
                 column: "ThreadId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Posts_UserId",
-                table: "Posts",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Threads_UserId",
+                name: "IX_Threads_BlogUserId",
                 table: "Threads",
-                column: "UserId");
+                column: "BlogUserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -125,7 +126,7 @@ namespace Model.Migrations
                 name: "Threads");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "BlogUsers");
         }
     }
 }

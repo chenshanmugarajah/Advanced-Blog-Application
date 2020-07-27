@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Model.Migrations
 {
     [DbContext(typeof(BloggingContext))]
-    [Migration("20200727094418_Thread-Update")]
-    partial class ThreadUpdate
+    [Migration("20200727125300_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -86,6 +86,27 @@ namespace Model.Migrations
                     b.HasIndex("PostId");
 
                     b.ToTable("Comments");
+                });
+
+            modelBuilder.Entity("Database.CurrentUser", b =>
+                {
+                    b.Property<int>("CurrentUserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Passowrd")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CurrentUserId");
+
+                    b.ToTable("CurrentUsers");
                 });
 
             modelBuilder.Entity("Database.Post", b =>

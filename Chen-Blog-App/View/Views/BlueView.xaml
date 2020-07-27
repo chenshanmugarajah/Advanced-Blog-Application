@@ -8,5 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="Blue">
         <Label Background="White" Margin="100px" x:Name="DeleteMeLabel"/>
+
+        <Button x:Name="LogoutButton" Content="Logout" Margin="200px" Click="LogoutButton_Click"/>
     </Grid>
 </UserControl>

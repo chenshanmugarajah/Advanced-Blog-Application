@@ -22,11 +22,27 @@ namespace Model.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "CurrentUsers",
+                columns: table => new
+                {
+                    CurrentUserId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Username = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
+                    Passowrd = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CurrentUsers", x => x.CurrentUserId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "BlogThreads",
                 columns: table => new
                 {
                     BlogThreadId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    ThreadName = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Owner = table.Column<string>(nullable: true),
                     BlogUserId = table.Column<int>(nullable: false)
@@ -118,6 +134,9 @@ namespace Model.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Comments");
+
+            migrationBuilder.DropTable(
+                name: "CurrentUsers");
 
             migrationBuilder.DropTable(
                 name: "Posts");

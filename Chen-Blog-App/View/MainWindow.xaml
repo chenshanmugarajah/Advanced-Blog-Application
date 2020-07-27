@@ -15,6 +15,9 @@
         <DataTemplate x:Name="blueViewTemplate" DataType="{x:Type viewmodels:BlueViewModel}">
             <views:BlueView DataContext="{Binding}" />
         </DataTemplate>
+        <DataTemplate x:Name="threadViewTemplate" DataType="{x:Type viewmodels:ThreadViewModel}">
+            <views:ThreadView DataContext="{Binding}" />
+        </DataTemplate>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -37,6 +40,7 @@
             <StackPanel>
                 <Button Content="Red View" Click="RedView_Clicked" />
                 <Button Content="Blue View" Click="BlueView_Clicked"/>
+                <Button Content="Thread View " Click="ThreadView_Clicked" />
             </StackPanel>
         </DockPanel>
 

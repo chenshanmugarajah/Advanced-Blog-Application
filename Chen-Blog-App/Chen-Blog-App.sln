@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Database\Model.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Controller", "Controller\Controller.csproj", "{0B846115-706C-4D5D-9B4B-9493B070DDA3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControllerTests", "ControllerTests\ControllerTests.csproj", "{E2743F67-53C4-4380-A8B4-56DB515D761A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "ControllerTests\Tests.csproj", "{E2743F67-53C4-4380-A8B4-56DB515D761A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View", "View\View.csproj", "{04135A7A-5737-41FD-B7E6-C5E407B4A0B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "View", "View\View.csproj", "{04135A7A-5737-41FD-B7E6-C5E407B4A0B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

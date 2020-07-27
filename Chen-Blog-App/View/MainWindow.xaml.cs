@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using View.ViewModels;
+using View.Views;
 
 namespace View
 {
@@ -34,6 +35,11 @@ namespace View
         private void BlueView_Clicked(object sender, RoutedEventArgs e)
         {
             DataContext = new BlueViewModel();
+        }
+
+        private void ThreadView_Clicked(object sender, RoutedEventArgs e)
+        {
+            DataContext = new ThreadViewModel();
         }
     }
 }

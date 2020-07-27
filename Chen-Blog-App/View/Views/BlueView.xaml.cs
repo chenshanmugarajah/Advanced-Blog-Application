@@ -26,11 +26,16 @@ namespace View.Views
             InitializeComponent();
             try
             {
-                DeleteMeLabel.Content = cm.CurrentUser.Username;
+                DeleteMeLabel.Content = cm.getCurrentUser().Username;
             } catch (Exception e)
             {
                 DeleteMeLabel.Content = "Not logged in";
             }
+        }
+
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            cm.logoutUser();
         }
     }
 }

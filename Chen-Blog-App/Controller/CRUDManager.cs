@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace Controller
 {
@@ -11,8 +12,6 @@ namespace Controller
         public BlogUser CurrentUser { get; set; } // logged in user
         public BlogThread SelectedThread { get; set; } // user selected thread
         public Post SelectedPost { get; set; } // user selected post
-
-
 
         public string createUser(string username, string email, string password, string passwordConfirm)
         {
@@ -44,6 +43,7 @@ namespace Controller
                     {
                         CurrentUser cu = new CurrentUser{ Username = username, Passowrd = password };
                         db.CurrentUsers.Add(cu);
+                        db.SaveChanges();
                         return "Sucessfully logged in";
                     }
                 }
@@ -52,15 +52,31 @@ namespace Controller
             }
         }
 
+        public BlogUser getCurrentUser()
+        {
+            using (var db = new BloggingContext())
+            { 
+                CurrentUser cu = db.CurrentUsers.FirstOrDefault();
+                BlogUser bu = db.BlogUsers.Where(b => b.Username == cu.Username).FirstOrDefault();
+                return bu;
+            }
+        }
+
         public string logoutUser()
         {
-            if (CurrentUser != null)
+            using (var db = new BloggingContext())
             {
-                CurrentUser = null;
-                return "Logged out";
+                try
+                {
+                    var cu = db.CurrentUsers.ToList();
+                    db.CurrentUsers.Remove(cu.First());
+                    db.SaveChanges();
+                    return "Logged out";
+                } catch (Exception e)
+                {
+                    return "Error - Loggin out";
+                }
             }
-
-            return "No one logged in";
         }
 
         public void setCurrentUser (object item)
@@ -69,7 +85,31 @@ namespace Controller
         }
 
 
+        public List<BlogThread> getAllThreads()
+        {
+            using (var db = new BloggingContext())
+            {
+                return db.BlogThreads.ToList();
+            }
+        }
 
+        public string createThread(string threadname, string description, string owner)
+        {
+            using (var db = new BloggingContext())
+            {
+                BlogUser bu = getCurrentUser();
+                bu.BlogThreads.Add(
+                    new BlogThread
+                    {
+                        ThreadName = threadname,
+                        Description = description,
+                        Owner = owner
+                    }
+                );
+                db.SaveChanges();
+                return bu.Username;
+            }
+        }
 
         public List<BlogThread> getAllPosts()
         {

@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+// Put different classes in different file
+
 namespace Database
 {
     public class BloggingContext : DbContext
@@ -11,7 +13,6 @@ namespace Database
         public DbSet<BlogThread> BlogThreads { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Comment> Comments { get; set; }
-
         public DbSet<CurrentUser> CurrentUsers { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)

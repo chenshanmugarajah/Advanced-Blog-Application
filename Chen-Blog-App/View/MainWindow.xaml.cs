@@ -12,9 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Controller;
 
-namespace View_WPF
+namespace View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -25,7 +24,6 @@ namespace View_WPF
         {
             InitializeComponent();
         }
-
 
     }
 }

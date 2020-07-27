@@ -12,6 +12,8 @@ namespace Controller
         public BlogThread SelectedThread { get; set; } // user selected thread
         public Post SelectedPost { get; set; } // user selected post
 
+
+
         public string createUser(string username, string email, string password, string passwordConfirm)
         {
             if (password != passwordConfirm)
@@ -64,6 +66,9 @@ namespace Controller
         {
             CurrentUser = (BlogUser)item;
         }
+
+
+
 
         public List<BlogThread> getAllPosts()
         {

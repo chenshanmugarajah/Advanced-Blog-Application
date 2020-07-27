@@ -40,6 +40,7 @@ namespace Controller
                 {
                     if (doesExist.Passowrd == password)
                     {
+                        setCurrentUser(doesExist);
                         return "Sucessfully logged in";
                     }
                 }
@@ -48,9 +49,20 @@ namespace Controller
             }
         }
 
+        public string logoutUser()
+        {
+            if (CurrentUser != null)
+            {
+                CurrentUser = null;
+                return "Logged out";
+            }
+
+            return "No one logged in";
+        }
+
         public void setCurrentUser (object item)
         {
-            CurrentUser == (BlogUser)item;
+            CurrentUser = (BlogUser)item;
         }
 
         public List<BlogThread> getAllPosts()

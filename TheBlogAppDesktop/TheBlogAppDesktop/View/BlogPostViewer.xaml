@@ -1,0 +1,43 @@
+﻿<Page x:Class="View.BlogPostViewer"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:View"
+      mc:Ignorable="d" 
+      d:DesignHeight="512" d:DesignWidth="768"
+      Title="BlogPostViewer" FontSize="50px" FontFamily="Corbel">
+
+    <StackPanel>
+        <Frame x:Name="_mainFrame" />
+        <Grid Height="512" Width="768">
+            <Grid.Background>
+                <ImageBrush ImageSource="/background_image.jpg" />
+            </Grid.Background>
+            <Label Background="White" Margin="20,16,49,428"/>
+            <TextBlock Text="Blog Posts" FontWeight="Heavy" Foreground="Black" Margin="31,22,400,428" />
+            <Button Content="Logout" Height="55px" Width="100px" FontSize="20px" Background="White" FontWeight="Heavy" Margin="610,22,58,434" Click="Logout_Clicked"  />
+            <Button Content="Back" Height="55px" Width="100px" FontSize="20px" Background="White" FontWeight="Heavy" Margin="503,22,165,435" Click="BackButton_Clicked" />
+
+            <ListBox x:Name="ListBlogPosts" Margin="20,101,49,205" FontSize="20" />
+
+            <TextBlock Text="Name" Padding="10, 0" FontSize="15px" FontWeight="Heavy" Margin="23,410,537,0" Height="22" TextAlignment="Center" VerticalAlignment="Top" Background="White"/>
+            <TextBox x:Name="TextBlogName" Padding="10, 0" FontSize="20px" Margin="23,437,537,0" Height="34" VerticalAlignment="Top"/>
+
+            <TextBlock Text="Description" Padding="10, 0" FontSize="15px" FontWeight="Heavy" Margin="248,410,246,0" Height="22" TextAlignment="Center" VerticalAlignment="Top" Background="White"/>
+            <TextBox x:Name="TextBlogDescription" Padding="10, 0" FontSize="20px" Margin="248,437,246,0" Height="34" VerticalAlignment="Top"/>
+
+            <Button Content="Submit Blog Changes" FontSize="20px" Background="White" FontWeight="Heavy" Margin="527,410,49,41" Click="UpdateBlog_Clicked"/>
+
+            <!-- post editing -->
+            <TextBlock Text="Name" Padding="10, 0" FontSize="15px" FontWeight="Heavy" Margin="23,320,537,0" Height="22" TextAlignment="Center" VerticalAlignment="Top" Background="White"/>
+            <TextBox x:Name="TextPostName" Padding="10, 0" FontSize="20px" Margin="23,347,537,0" Height="34" VerticalAlignment="Top"/>
+
+            <TextBlock Text="Content" Padding="10, 0" FontSize="15px" FontWeight="Heavy" Margin="248,320,246,0" Height="22" TextAlignment="Center" VerticalAlignment="Top" Background="White"/>
+            <TextBox x:Name="TextPostContent" Padding="10, 0" FontSize="20px" Margin="248,347,246,0" Height="34" VerticalAlignment="Top"/>
+
+            <Button Content="Create Post" FontSize="20px" Background="White" FontWeight="Heavy" Margin="527,320,49,131" Click="CreatePost_Clicked"/>
+
+        </Grid>
+    </StackPanel>
+</Page>

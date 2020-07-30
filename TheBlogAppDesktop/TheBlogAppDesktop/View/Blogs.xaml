@@ -1,0 +1,41 @@
+﻿<Page x:Class="View.Blogs"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:View"
+      mc:Ignorable="d" 
+      d:DesignHeight="512" d:DesignWidth="768"
+      Title="Blogs" FontSize="50px" FontFamily="Corbel">
+    <StackPanel>
+        <Frame x:Name="_mainFrame" />
+        <Grid Height="512" Width="768">
+            <Grid.Background>
+                <ImageBrush ImageSource="/background_image.jpg" />
+            </Grid.Background>
+            <Label Background="White" Margin="600,256,52,74" />
+            <Label Background="White" Margin="20,16,190,416"/>
+            <TextBlock FontWeight="Heavy" Foreground="Black" Margin="31,22,211,426" ><Run Text="Blogs"/><Run Text=" from"/><Run Language="en-gb" Text=" all users"/></TextBlock>
+
+            <ListBox x:Name="ListAllBlogs" Margin="20,114,190,207" FontSize="20" SelectionChanged="ListMyBlogs_SelectionChanged" />
+
+            <Label Content="Create a new blog below" FontSize="20px" Background="white" FontWeight="Heavy" Margin="22,319,297,158" HorizontalContentAlignment="Center"/>
+
+            <TextBlock Text="Enter a name for your blog" Padding="10, 0" FontSize="15px" FontWeight="Heavy" Margin="22,366,538,0" Height="22" TextAlignment="Center" VerticalAlignment="Top" Background="White"/>
+            <TextBox x:Name="TextBlogName" Padding="10, 0" FontSize="20px" Margin="22,393,538,0" Height="38" VerticalAlignment="Top"/>
+
+            <TextBlock Text="Add a Description" Padding="10, 0" FontSize="15px" FontWeight="Heavy" Margin="249,366,297,0" Height="22" TextAlignment="Center" VerticalAlignment="Top" Background="White"/>
+            <TextBox x:Name="TextBlogDescription" Padding="10, 0" FontSize="20px" Margin="249,393,297,0" Height="38" VerticalAlignment="Top"/>
+
+            <Button Content="Submit" FontSize="20px" Background="White" FontWeight="Heavy" Margin="484,319,190,81" Click="Submit_Clicked"/>
+            <Label Background="White" Margin="601,20,52,280" />
+            <Label Content="View" FontSize="20px" Background="white" FontWeight="Heavy" FontFamily="Corbel" Width="58" Margin="630,42,80,438"/>
+            <Button Content="Logout" Width="100px" FontSize="20px" Background="White" FontWeight="Heavy" Margin="608,375,60,81" Click="Logout_Clicked" />
+            <Label Content="Logged In&#xA;        As" FontSize="20px" Background="white" Margin="612,260,58,194" FontWeight="Heavy" FontFamily="Corbel"/>
+            <Button Content="Dashboard" Width="100px" FontSize="20px" Background="White" FontWeight="Heavy" Margin="609,96,59,357" Click="GoToBash_Clicked"  />
+            <Button Content="Posts" Height="55px" Width="100px" FontSize="20px" Background="White" FontWeight="Heavy" Margin="609,168,59,288" Click="GotoPosts_Clicked"/>
+            <Label x:Name="LabelUsername" FontSize="20px" Background="white" Margin="611,314,60,142" FontWeight="Heavy" FontFamily="Corbel" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+        </Grid>
+    </StackPanel>
+</Page>

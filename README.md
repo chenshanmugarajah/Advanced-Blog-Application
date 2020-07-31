@@ -44,6 +44,8 @@ This project revolved around the using of the .NET core framework
 - Waiting till end of entire card to commit changes
 - Leaving tests till end of sprint
 
+ ![Sprint1](sprint1_board.png)
+
 ## Sprint 2
 - Implement CRUD functionality
 
@@ -63,5 +65,23 @@ This project revolved around the using of the .NET core framework
 - Wasting time on 'Nice to have' features
 - Waiting to commit
 
+ ![Sprint2](sprint2_board.png)
+
 ## Sprint 3
 - Add WPF and write test
+
+### Review
+- Complete a MVP application
+- Input functions into WPF
+
+### Retrospective
+**Start**
+- Time boxing
+
+**Stop**
+- Adding new features during sprint
+
+ ![Sprint3](sprint3_board.png)
+ 
+ # Final project board
+  ![Final1](final_board.png)

@@ -12,7 +12,7 @@ namespace Model
             using (var db = new BloggingContext())
             {
                 string owner = db.ChennitUsers.Where(cu => cu.ChennitUserId == ChennitUserId).First().Username;
-                return $"{Title} - user: {owner.ToLower()}";
+                return $"{Title.ToUpper()}\n By: {owner.ToUpper()}";
             }
         }
     }

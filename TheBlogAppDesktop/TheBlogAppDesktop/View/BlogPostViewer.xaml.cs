@@ -53,15 +53,24 @@ namespace View
             cm.updateBlog(blog.BlogId, blogname, blogdesc);
         }
 
-        private void BackButton_Clicked(object sender, RoutedEventArgs e)
+        private void AddPost_Clicked(object sender, RoutedEventArgs e)
+        {
+            RecHider.Height = 0;
+        }
+
+        private void GotoPosts_Clicked(object sender, RoutedEventArgs e)
         {
             _mainFrame.Navigate(new Blogs());
         }
 
-        private void Logout_Clicked(object sender, RoutedEventArgs e)
+        private void GoToDash_Clicked(object sender, RoutedEventArgs e)
         {
-            _mainFrame.Navigate(new LoginPage());
-            this.NavigationService.GoBack();
+            _mainFrame.Navigate(new Homepage());
+        }
+
+        private void ListBlogPosts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _mainFrame.Navigate(new PostViewer((Post)ListBlogPosts.SelectedItem));
         }
     }
 }

@@ -87,21 +87,6 @@ namespace Model.Migrations
                     b.ToTable("Comments");
                 });
 
-            modelBuilder.Entity("Model.CurrentUser", b =>
-                {
-                    b.Property<int>("CurrentUserId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("CurrentUserId");
-
-                    b.ToTable("CurrentUsers");
-                });
-
             modelBuilder.Entity("Model.Post", b =>
                 {
                     b.Property<int>("PostId")

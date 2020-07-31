@@ -21,10 +21,11 @@ namespace Controller
         {
             using (var db = new BloggingContext())
             {
-                Post post = db.Posts.Where(p => p.PostId == postid).FirstOrDefault();
-                post.Comments.Add(
+                ChennitUser cu = db.ChennitUsers.Where(cu => cu.ChennitUserId == CurrentUser.Id).FirstOrDefault();
+                cu.Comments.Add(
                     new Comment
                     {
+                        PostId = postid,
                         CommentContent = comment
                     });
                 db.SaveChanges();

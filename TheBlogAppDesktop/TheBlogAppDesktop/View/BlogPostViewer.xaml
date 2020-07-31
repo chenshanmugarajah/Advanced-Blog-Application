@@ -5,38 +5,58 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:View"
       mc:Ignorable="d" 
-      d:DesignHeight="512" d:DesignWidth="768"
-      Title="BlogPostViewer" FontSize="50px" FontFamily="Corbel">
+      d:DesignHeight="600" d:DesignWidth="900"
+      Title="BlogPostViewer" FontSize="50px" >
 
     <StackPanel>
         <Frame x:Name="_mainFrame" />
-        <Grid Height="512" Width="768">
-            <Grid.Background>
-                <ImageBrush ImageSource="/background_image.jpg" />
-            </Grid.Background>
-            <Label Background="White" Margin="20,16,49,428"/>
-            <TextBlock Text="Blog Posts" FontWeight="Heavy" Foreground="Black" Margin="31,22,400,428" />
-            <Button Content="Logout" Height="55px" Width="100px" FontSize="20px" Background="White" FontWeight="Heavy" Margin="610,22,58,434" Click="Logout_Clicked"  />
-            <Button Content="Back" Height="55px" Width="100px" FontSize="20px" Background="White" FontWeight="Heavy" Margin="503,22,165,435" Click="BackButton_Clicked" />
+        <Grid Height="600" Width="900" Background="WhiteSmoke">
 
-            <ListBox x:Name="ListBlogPosts" Margin="20,101,49,205" FontSize="20" />
+            <Rectangle Fill="#ff6200" HorizontalAlignment="Left" Height="600" Stroke="Black" VerticalAlignment="Center" Width="558"/>
+            <TextBlock FontFamily="Corbel" Text="Blog Posts" FontWeight="Heavy" Foreground="Black" Margin="641,22,25,506" />
 
-            <TextBlock Text="Name" Padding="10, 0" FontSize="15px" FontWeight="Heavy" Margin="23,410,537,0" Height="22" TextAlignment="Center" VerticalAlignment="Top" Background="White"/>
-            <TextBox x:Name="TextBlogName" Padding="10, 0" FontSize="20px" Margin="23,437,537,0" Height="34" VerticalAlignment="Top"/>
+            <ListBox HorizontalAlignment="Stretch" x:Name="ListBlogPosts" Margin="32,58,376,31" Background="#ff6200" Foreground="White" FontSize="30" BorderBrush="White" SelectionChanged="ListBlogPosts_SelectionChanged" Width="490">
 
-            <TextBlock Text="Description" Padding="10, 0" FontSize="15px" FontWeight="Heavy" Margin="248,410,246,0" Height="22" TextAlignment="Center" VerticalAlignment="Top" Background="White"/>
-            <TextBox x:Name="TextBlogDescription" Padding="10, 0" FontSize="20px" Margin="248,437,246,0" Height="34" VerticalAlignment="Top"/>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Height" Value="200"/>
+                        <Setter Property="Width" Value="490"/>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
 
-            <Button Content="Submit Blog Changes" FontSize="20px" Background="White" FontWeight="Heavy" Margin="527,410,49,41" Click="UpdateBlog_Clicked"/>
+            </ListBox>
+            <TextBlock FontFamily="Corbel" Text="Name" Padding="10, 0" FontSize="15px" FontWeight="Heavy" Margin="611,335,233,0" Height="22" TextAlignment="Center" VerticalAlignment="Top"/>
+            <TextBox x:Name="TextBlogName" Padding="10, 0" FontSize="20px" Margin="619,353,35,0" Height="34" VerticalAlignment="Top"/>
+
+            <TextBlock FontFamily="Corbel" Text="Description" Padding="10, 0" FontSize="15px" FontWeight="Heavy" Margin="611,395,203,0" Height="22" TextAlignment="Center" VerticalAlignment="Top"/>
+            <TextBox x:Name="TextBlogDescription" Padding="10, 0" FontSize="20px" Margin="619,414,35,0" Height="34" VerticalAlignment="Top"/>
+
+            <Button FontFamily="Corbel" Content="Submit Changes" FontSize="18" Background="WhiteSmoke" FontWeight="Heavy" Margin="670,456,86,96" Click="UpdateBlog_Clicked"/>
 
             <!-- post editing -->
-            <TextBlock Text="Name" Padding="10, 0" FontSize="15px" FontWeight="Heavy" Margin="23,320,537,0" Height="22" TextAlignment="Center" VerticalAlignment="Top" Background="White"/>
-            <TextBox x:Name="TextPostName" Padding="10, 0" FontSize="20px" Margin="23,347,537,0" Height="34" VerticalAlignment="Top"/>
+            <Button FontFamily="Corbel"  Content="ADD NEW POST" FontSize="18" Background="WhiteSmoke" FontWeight="Heavy" Margin="731,94,25,458" Click="AddPost_Clicked"/>
 
-            <TextBlock Text="Content" Padding="10, 0" FontSize="15px" FontWeight="Heavy" Margin="248,320,246,0" Height="22" TextAlignment="Center" VerticalAlignment="Top" Background="White"/>
-            <TextBox x:Name="TextPostContent" Padding="10, 0" FontSize="20px" Margin="248,347,246,0" Height="34" VerticalAlignment="Top"/>
+            <TextBlock FontFamily="Corbel" Text="Name" Padding="10, 0" FontSize="15px" FontWeight="Heavy" Margin="609,158,233,0" Height="22" TextAlignment="Center" VerticalAlignment="Top" />
+            <TextBox x:Name="TextPostName" Padding="10, 0" FontSize="20px" Margin="619,177,35,0" Height="34" VerticalAlignment="Top"/>
 
-            <Button Content="Create Post" FontSize="20px" Background="White" FontWeight="Heavy" Margin="527,320,49,131" Click="CreatePost_Clicked"/>
+            <TextBlock FontFamily="Corbel" Text="Content" Padding="10, 0" FontSize="15px" FontWeight="Heavy" Margin="610,216,217,0" Height="22" TextAlignment="Center" VerticalAlignment="Top" />
+            <TextBox x:Name="TextPostContent" Padding="10, 0" FontSize="20px" Margin="619,234,35,0" Height="34" VerticalAlignment="Top"/>
+
+            <Button FontFamily="Corbel" Content="Create Post" FontSize="18" Background="WhiteSmoke" FontWeight="Heavy" Margin="670,276,86,276" Click="CreatePost_Clicked"/>
+
+            <Button FontFamily="Corbel"  Content="DASHBOARD" FontSize="18" Background="WhiteSmoke" FontWeight="Heavy" Margin="751,523,35,31" Click="GoToDash_Clicked" />
+            <Button FontFamily="Corbel"  Content="BLOGS" FontSize="18" Background="WhiteSmoke" FontWeight="Heavy" Margin="619,523,163,31" Click="GotoPosts_Clicked" />
+            <Rectangle x:Name="RecHider" Fill="WhiteSmoke" HorizontalAlignment="Left" Height="188" VerticalAlignment="Top" Width="280" Margin="602,147,0,0"/>
 
         </Grid>
     </StackPanel>

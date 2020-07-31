@@ -9,7 +9,7 @@ using Model;
 namespace Model.Migrations
 {
     [DbContext(typeof(BloggingContext))]
-    [Migration("20200728233552_InitialCreate")]
+    [Migration("20200730174618_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -87,21 +87,6 @@ namespace Model.Migrations
                     b.HasIndex("PostId");
 
                     b.ToTable("Comments");
-                });
-
-            modelBuilder.Entity("Model.CurrentUser", b =>
-                {
-                    b.Property<int>("CurrentUserId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("CurrentUserId");
-
-                    b.ToTable("CurrentUsers");
                 });
 
             modelBuilder.Entity("Model.Post", b =>

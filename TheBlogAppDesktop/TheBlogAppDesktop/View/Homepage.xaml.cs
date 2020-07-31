@@ -43,5 +43,15 @@ namespace View
         {
             _mainFrame.Navigate(new AllPostsPage());
         }
+
+        private void ListMyBlogs_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _mainFrame.Navigate(new BlogPostViewer((Blog)ListMyBlogs.SelectedItem));
+        }
+
+        private void ListMyPosts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _mainFrame.Navigate(new PostViewer((Post)ListMyPosts.SelectedItem));
+        }
     }
 }

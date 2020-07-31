@@ -12,15 +12,16 @@ namespace Controller
         {
             using (var db = new BloggingContext())
             {
-                var blog = db.Blogs.Where(b => b.BlogId == blogid).First();
-
+                ChennitUser user = db.ChennitUsers.Where(cu => cu.ChennitUserId == CurrentUser.Id).First();
+                Blog blog = db.Blogs.Where(b => b.BlogId == blogid).First();
                 blog.Posts.Add(
                     new Post
                     {
+                        ChennitUserId = user.ChennitUserId,
                         Title = title,
                         Content = content,
                         Likes = 0
-                    });
+                    }) ;
                 db.SaveChanges();
             }
         }
@@ -48,12 +49,11 @@ namespace Controller
             }
         }
 
-        public void updatePost(int postid, string title, string content)
+        public void updatePost(int postid, string content)
         {
             using (var db = new BloggingContext())
             {
                 Post post = db.Posts.Where(p => p.PostId == postid).FirstOrDefault();
-                post.Title = title;
                 post.Content = content;
                 db.SaveChanges();
             }

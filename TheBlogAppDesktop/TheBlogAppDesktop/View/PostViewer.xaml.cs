@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controller;
+using Model;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +20,41 @@ namespace View
     /// </summary>
     public partial class PostViewer : Page
     {
-        public PostViewer()
+        public PostViewer(Post post)
         {
             InitializeComponent();
+            TextPostTitle.Text = post.Title;
+            TextPostContent.Text = post.Content;
+
+            CRUDManager cm = new CRUDManager();
+            ListComments.ItemsSource = cm.getPostComments(post.PostId);
+            this.post = post;
+        }
+
+        public Post post { get; }
+
+        private void GoToDash_Clicked(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new Homepage());
+        }
+
+        private void GotoPosts_Clicked(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new Blogs());
+        }
+
+        private void PostComment_Clicked(object sender, RoutedEventArgs e)
+        {
+            CRUDManager cm = new CRUDManager();
+            cm.createComment(post.PostId, PostComment.Text);
+            cm.likePost(post.PostId);
+            ListComments.ItemsSource = cm.getPostComments(post.PostId);
+        }
+
+        private void EditPost_Clicked(object sender, RoutedEventArgs e)
+        {
+            CRUDManager cm = new CRUDManager();
+            cm.updatePost(post.PostId, TextPostContent.Text);
         }
     }
 }

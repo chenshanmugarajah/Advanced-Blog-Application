@@ -45,7 +45,7 @@ namespace View
             ListAllBlogs.ItemsSource = cm.getAllBlogs();
         }
 
-        private void GoToBash_Clicked(object sender, RoutedEventArgs e)
+        private void GoToDash_Clicked(object sender, RoutedEventArgs e)
         {
             _mainFrame.Navigate(new Homepage());
         }
@@ -58,6 +58,11 @@ namespace View
         private void Logout_Clicked(object sender, RoutedEventArgs e)
         {
             _mainFrame.Navigate(new LoginPage());
+        }
+
+        private void ShowAddBlog_Clicked(object sender, RoutedEventArgs e)
+        {
+            RecHider.Height = 0;
         }
     }
 }

@@ -22,19 +22,6 @@ namespace Model.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CurrentUsers",
-                columns: table => new
-                {
-                    CurrentUserId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Email = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CurrentUsers", x => x.CurrentUserId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Blogs",
                 columns: table => new
                 {
@@ -75,13 +62,13 @@ namespace Model.Migrations
                         column: x => x.BlogId,
                         principalTable: "Blogs",
                         principalColumn: "BlogId",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Posts_ChennitUsers_ChennitUserId",
                         column: x => x.ChennitUserId,
                         principalTable: "ChennitUsers",
                         principalColumn: "ChennitUserId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -141,9 +128,6 @@ namespace Model.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Comments");
-
-            migrationBuilder.DropTable(
-                name: "CurrentUsers");
 
             migrationBuilder.DropTable(
                 name: "Posts");

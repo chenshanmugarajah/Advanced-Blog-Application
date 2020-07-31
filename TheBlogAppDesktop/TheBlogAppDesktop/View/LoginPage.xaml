@@ -5,23 +5,22 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:View"
       mc:Ignorable="d" 
-      d:DesignHeight="512" d:DesignWidth="768"
-      Title="LoginPage" Height="512" Width="768" FontSize="65px" FontFamily="Corbel">
+      d:DesignHeight="600" d:DesignWidth="900"
+      Title="LoginPage" Height="600" Width="900" FontSize="65px">
     <StackPanel>
         <Frame x:Name="_mainFrame" />
-        <Grid Height="512" Width="768">
-            <Grid.Background>
-                <ImageBrush ImageSource="/background_image.jpg" />
-            </Grid.Background>
-            <TextBlock Text="Log in" FontWeight="Heavy" Foreground="White" Margin="298,93,298,263" />
-            <TextBlock Text="Email: " Margin="155,192,523,282" FontSize="30" Foreground="White"/>
-            <TextBox x:Name="TextLoginUsername" Text="" Margin="245,187,78,277" FontSize="30" Padding="10, 0"/>
+        <Grid Height="600" Width="900" Background="White">
+            <Rectangle Fill="#ff6200" HorizontalAlignment="Left" Height="600" Stroke="Black" VerticalAlignment="Center" Width="634" Margin="266,0,0,0"/>
 
-            <TextBlock Text="Password: " Margin="111,262,523,212" FontSize="30" Foreground="White"/>
-            <TextBox x:Name="TextLoginPassword" Text="" Margin="245,257,78,206" FontSize="30" Padding="10, 0"/>
+            <TextBlock  FontFamily="Corbel" FontWeight="Heavy" Margin="77,223,683,219" ><Run Text="Sign"/><LineBreak/><Run Language="en-gb" Text="  "/><Run Text="In"/></TextBlock>
+            <TextBlock Text="Email: " Margin="343,188,466,375" FontSize="30" Foreground="White"/>
+            <TextBox x:Name="TextLoginUsername" Text="" Margin="426,188,46,375" FontSize="30" Padding="10, 0"/>
 
-            <Button Content="SUBMIT" Background="White" FontSize="30" Margin="308,328,300,116" Click="Button_Click" />
-            <Button Content="Sign up" Height="55px" FontSize="20px" Background="White" FontWeight="Heavy" Margin="614,23,23,434" Click="Button_Click_1"/>
+            <TextBlock Text="Password: " Margin="292,266,475,289" FontSize="30" Foreground="White"/>
+            <TextBox x:Name="TextLoginPassword" Text="" Margin="426,262,46,291" FontSize="30" Padding="10, 0"/>
+
+            <Button Content="SUBMIT" Background="White" FontSize="30" Margin="504,349,238,197" Click="Button_Click" />
+            <Button  FontFamily="Corbel" Content="Sign up" Height="55px" FontSize="20px" Background="White" FontWeight="Heavy" Margin="730,493,46,52" Click="Button_Click_1"/>
         </Grid>
     </StackPanel>
 </Page>

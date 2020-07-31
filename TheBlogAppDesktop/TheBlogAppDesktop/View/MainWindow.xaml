@@ -5,16 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="512" Width="768" FontSize="50px" FontFamily="Corbel" FontWeight="Heavy">
+        Title="MainWindow" Height="600" Width="900" FontSize="50px" FontFamily="Corbel" FontWeight="Heavy">
     <StackPanel>
         <Frame x:Name="_mainFrame"/>
-        <Grid Height="512" Width="768">
-            <Grid.Background>
-                <ImageBrush ImageSource="/background_image.jpg" />
-            </Grid.Background>
-            <TextBlock Text="TheBlogApp" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Margin="100,256,0,0"/>
-            <Button Content="Sign in" Height="75px" FontSize="40px" Background="White" FontWeight="Heavy" Margin="100,326,495,110" Click="Button_Click"/>
-            <Button Content="Sign up" Height="55px" Width="100px" FontSize="20px" Background="White" FontWeight="Heavy" Margin="300,336,368,120" Click="Button_Click_1"/>
+        <Grid Height="600" Width="900">
+            <Rectangle Fill="#ff6200" HorizontalAlignment="Center" Height="391" Margin="0,199,0,0" Stroke="Black" VerticalAlignment="Top" Width="900"/>
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="312,44,0,0"><Run Text="Welcome "/><Run Language="en-gb" Text="T"/><Run Text="o"/></TextBlock>
+            <TextBlock Text="TheeBlogApp" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="298,110,0,0"/>
+            <Button Content="Sign in" Height="75px" FontSize="40px" Background="White" FontWeight="Heavy" Margin="337,274,347,250" Click="Button_Click"/>
+            <Button Content="Sign up" Height="55px" FontSize="20px" Background="White" FontWeight="Heavy" Margin="396,373,396,172" Click="Button_Click_1"/>
         </Grid>
     </StackPanel>
 </Window>

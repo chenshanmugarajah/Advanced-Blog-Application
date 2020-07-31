@@ -5,29 +5,58 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:View"
       mc:Ignorable="d" 
-      d:DesignHeight="512" d:DesignWidth="768"
-      Title="Homepage" Height="512" Width="768" FontSize="50px" FontFamily="Corbel">
+      d:DesignHeight="600" d:DesignWidth="900"
+      Title="Homepage" Height="600" Width="900" FontSize="50px" >
     <StackPanel>
         <Frame x:Name="_mainFrame" />
-        <Grid Height="512" Width="768">
-            <Grid.Background>
-                <ImageBrush ImageSource="/background_image.jpg" />
-            </Grid.Background>
-            <Label Background="White" Margin="602,250,52,75" />
-            <Label Background="White" Margin="20,16,205,417"/>
-            <Label Background="White" Margin="601,20,52,280" />
-            <Label Content="View&#xA;   All" FontSize="20px" Background="white" FontWeight="Heavy" FontFamily="Corbel" Height="58" Width="58" Margin="630,28,80,426"/>
-            <TextBlock Text="My Dashboard" FontWeight="Heavy" Foreground="Black" Margin="31,25,400,423" />
+        <Grid Height="600" Width="900" Background="White">
 
-            <Button Content="Logout" Width="100px" FontSize="20px" Background="White" FontWeight="Heavy" Margin="608,375,60,81" Click="LogoutButton_Clicked" />
-            <Label Content="Logged In&#xD;&#xA;        As" FontSize="20px" Background="white" Margin="612,260,58,194" FontWeight="Heavy" FontFamily="Corbel"/>
-            <ListBox x:Name="ListMyBlogs" Margin="20,139,205,259" FontSize="20"/>
-            <ListBox x:Name="ListMyPosts" Margin="20,316,205,76" FontSize="20"/>
-            <TextBlock Background="White" FontSize="20" FontWeight="Heavy" Foreground="Black" Margin="20,289,205,196" ><Run Language="en-gb" Text=" "/><Run Text="Your posts"/></TextBlock>
-            <TextBlock FontSize="20" FontWeight="Heavy"  Background="White" Foreground="Black" Margin="20,114,205,373" ><Run Language="en-gb" Text=" "/><Run Text="Your Blogs"/></TextBlock>
-            <Button Content="Blogs" Width="100px" FontSize="20px" Background="White" FontWeight="Heavy" Margin="609,96,59,357" Click="OpenBlogsButton_Clicked" />
-            <Button Content="Posts" Height="55px" Width="100px" FontSize="20px" Background="White" FontWeight="Heavy" Margin="609,168,59,288" Click="GotoPosts_Clicked"/>
-            <Label x:Name="LabelUsername" FontSize="20px" Background="white" Margin="611,314,60,142" FontWeight="Heavy" FontFamily="Corbel" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Rectangle Fill="#ff6200" HorizontalAlignment="Left" Height="600" Stroke="Black" VerticalAlignment="Center" Width="634"/>
+            <Label Content="MENU" FontSize="20px" FontWeight="Heavy" FontFamily="Corbel" Margin="732,71,101,491"/>
+            <TextBlock  FontFamily="Corbel" Text="My Dashboard" FontWeight="Heavy" Foreground="White" Margin="154,40,420,501" />
+            <Label Content="Logged In As" FontSize="20px" Background="white" Margin="705,316,73,245" FontWeight="Heavy" FontFamily="Corbel"/>
+            <ListBox x:Name="ListMyBlogs" Margin="20,156,304,280" FontSize="20" SelectionChanged="ListMyBlogs_SelectionChanged" >
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Height" Value="100"/>
+                        <Setter Property="Width" Value="490"/>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <ListBox FontFamily="Corbel" x:Name="ListMyPosts" Margin="20,360,304,68" FontSize="20" SelectionChanged="ListMyPosts_SelectionChanged" >
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Height" Value="150"/>
+                        <Setter Property="Width" Value="520"/>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <TextBlock FontFamily="Corbel" Background="White" FontSize="20" FontWeight="Heavy" Foreground="Black" Margin="20,333,304,240" ><Run Language="en-gb" Text=" "/><Run Text="Your posts"/></TextBlock>
+            <TextBlock FontFamily="Corbel" FontSize="20" FontWeight="Heavy"  Background="White" Foreground="Black" Margin="20,131,304,444" ><Run Language="en-gb" Text=" "/><Run Text="Your Blogs"/></TextBlock>
+            <Button FontFamily="Corbel" Content="   All&#xD;&#xA;Blogs" Width="100px" FontSize="20px" Background="White" FontWeight="Heavy" Margin="660,120,140,332" Click="OpenBlogsButton_Clicked" />
+            <Button FontFamily="Corbel" Content="   All&#xD;&#xA;Posts" Width="100px" FontSize="20px" Background="White" FontWeight="Heavy" Margin="772,120,28,332" Click="GotoPosts_Clicked"/>
+            <Label x:Name="LabelUsername" FontSize="20px" Background="white" Margin="661,360,28,154" FontWeight="Heavy" FontFamily="Corbel" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button FontFamily="Corbel" Content="Logout" FontSize="20px" Background="White" FontWeight="Heavy" Margin="660,460,28,68" Click="LogoutButton_Clicked" />
         </Grid>
     </StackPanel>
 </Page>

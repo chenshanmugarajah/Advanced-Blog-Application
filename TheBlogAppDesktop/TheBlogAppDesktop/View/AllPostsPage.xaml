@@ -5,26 +5,37 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:View"
       mc:Ignorable="d" 
-      d:DesignHeight="512" d:DesignWidth="768"
-      Title="All Posts Page" FontSize="50px" FontFamily="Corbel">
+      d:DesignHeight="600" d:DesignWidth="900"
+      Title="Blogs" FontSize="50px" FontFamily="Corbel">
     <StackPanel>
         <Frame x:Name="_mainFrame" />
-        <Grid Height="512" Width="768">
-            <Grid.Background>
-                <ImageBrush ImageSource="/background_image.jpg" />
-            </Grid.Background>
-            <Label Background="White" Margin="600,256,52,74" />
-            <Label Background="White" Margin="20,16,190,416"/>
-            <TextBlock FontWeight="Heavy" Foreground="Black" Margin="31,22,211,426" ><Run Language="en-gb" Text="Posts"/><Run Text=" from"/><Run Text=" all users"/></TextBlock>
+        <Grid Height="600" Width="900" Background="WhiteSmoke">
 
-            <ListBox x:Name="ListAllBlogs" Margin="20,114,190,74" FontSize="20"  />
-            <Label Background="White" Margin="601,20,52,280" />
-            <Label Content="View" FontSize="20px" Background="white" FontWeight="Heavy" FontFamily="Corbel" Width="58" Margin="630,42,80,438"/>
-            <Button Content="Logout" Width="100px" FontSize="20px" Background="White" FontWeight="Heavy" Margin="608,375,60,81" Click="Logout_Clicked" />
-            <Label Content="Logged In&#xA;        As" FontSize="20px" Background="white" Margin="612,260,58,194" FontWeight="Heavy" FontFamily="Corbel"/>
-            <Button Content="Dashboard" Width="100px" FontSize="20px" Background="White" FontWeight="Heavy" Margin="609,96,59,357" Click="GoToBash_Clicked"  />
-            <Button Content="Blogs" Height="55px" Width="100px" FontSize="20px" Background="White" FontWeight="Heavy" Margin="609,168,59,288" Click="GotoPosts_Clicked"/>
-            <Label x:Name="LabelUsername" FontSize="20px" Background="white" Margin="611,314,60,142" FontWeight="Heavy" FontFamily="Corbel" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Rectangle Fill="#ff6200" HorizontalAlignment="Left" Height="600" Stroke="Black" VerticalAlignment="Center" Width="558" Margin="342,0,0,0"/>
+            <TextBlock FontWeight="Heavy" Foreground="Black" Margin="51,35,706,503" ><Run Language="en-gb" Text="Posts"/></TextBlock>
+            <ListBox x:Name="ListAllPosts" BorderBrush="#ff6200"  Margin="367,35,31,54" FontSize="30"  Background="#ff6200" Foreground="White" Padding="0, 10" SelectionChanged="ListAllPosts_SelectionChanged" >
+
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Height" Value="200"/>
+                        <Setter Property="Width" Value="490"/>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+
+            </ListBox>
+            <Button  Content="DASHBOARD" FontSize="18" Background="WhiteSmoke" FontWeight="Heavy" Margin="58,440,699,114" Click="GoToDashboard_Clicked" />
+            <Button  Content="BLOGS" FontSize="18" Background="WhiteSmoke" FontWeight="Heavy" Margin="58,500,699,54" Click="GoToBlogs_Clicked"  />
+
 
         </Grid>
     </StackPanel>

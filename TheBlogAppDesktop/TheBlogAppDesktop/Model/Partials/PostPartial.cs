@@ -8,7 +8,7 @@ namespace Model
     {
         public override string ToString()
         {
-            return $"{Title}\n{Content}";
+            return $"Title: {Title}\nContent: {Content}\nLikes: {Likes}\n";
         }
     }
 }

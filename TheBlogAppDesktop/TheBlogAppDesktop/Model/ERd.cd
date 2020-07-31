@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Model.Blog">
+    <Position X="8" Y="0.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAhAEAEBCAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Partials\BlogPartial.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ChennitUser" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Posts" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Model.Comment">
+    <Position X="17.25" Y="4.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEEACAAAAAACAAgAAAgAIAAAAAAAAA=</HashCode>
+      <FileName>Partials\CommentPartial.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ChennitUser" />
+      <Property Name="Post" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Model.Post">
+    <Position X="8.25" Y="3.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAgABAEEEACAAAAAAAAAAAAACAIAAAAAAIAA=</HashCode>
+      <FileName>Partials\PostPartial.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Blog" />
+      <Property Name="ChennitUser" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Comments" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Model.ChennitUser">
+    <Position X="16.25" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAABQAAAAAAAEAAAAACAIAAAAAAIAA=</HashCode>
+      <FileName>UserModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Comments" />
+      <Property Name="Posts" />
+      <Property Name="Blogs" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

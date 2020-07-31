@@ -16,7 +16,7 @@ This project revolved around the using of the .NET core framework
  - [ ] Project follows OOP pillars
  
  ## Entity Relationship Diagram
- 
+ ![Entity Relationship Diagram](ERD.png)
 
 # Sprints
 ## Sprint 1

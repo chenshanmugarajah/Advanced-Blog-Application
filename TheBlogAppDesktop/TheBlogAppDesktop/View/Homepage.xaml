@@ -11,7 +11,7 @@
         <Frame x:Name="_mainFrame" />
         <Grid Height="600" Width="900" Background="White">
 
-            <Rectangle Fill="#ff6200" HorizontalAlignment="Left" Height="600" Stroke="Black" VerticalAlignment="Center" Width="634"/>
+            <Rectangle Fill="#E7717D" HorizontalAlignment="Left" Height="600" Stroke="Black" VerticalAlignment="Center" Width="634"/>
             <Label Content="MENU" FontSize="20px" FontWeight="Heavy" FontFamily="Corbel" Margin="732,71,101,491"/>
             <TextBlock  FontFamily="Corbel" Text="My Dashboard" FontWeight="Heavy" Foreground="White" Margin="154,40,420,501" />
             <Label Content="Logged In As" FontSize="20px" Background="white" Margin="705,316,73,245" FontWeight="Heavy" FontFamily="Corbel"/>

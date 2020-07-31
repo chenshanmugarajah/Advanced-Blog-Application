@@ -12,10 +12,10 @@
         <Frame x:Name="_mainFrame" />
         <Grid Height="600" Width="900" Background="WhiteSmoke">
 
-            <Rectangle Fill="#ff6200" HorizontalAlignment="Left" Height="600" Stroke="Black" VerticalAlignment="Center" Width="558"/>
-            <TextBlock FontFamily="Corbel" Text="Blog Posts" FontWeight="Heavy" Foreground="Black" Margin="641,22,25,506" />
+            <Rectangle Fill="#E7717D" HorizontalAlignment="Left" Height="600" VerticalAlignment="Center" Width="558"/>
+            <TextBlock FontFamily="Corbel" Text="Blog Posts" FontWeight="Heavy" Foreground="Black" Margin="621,22,45,506" />
 
-            <ListBox HorizontalAlignment="Stretch" x:Name="ListBlogPosts" Margin="32,58,376,31" Background="#ff6200" Foreground="White" FontSize="30" BorderBrush="White" SelectionChanged="ListBlogPosts_SelectionChanged" Width="490">
+            <ListBox HorizontalAlignment="Stretch" x:Name="ListBlogPosts" Margin="32,58,376,31" Background="#E7717D" Foreground="White" FontSize="30" BorderBrush="White" SelectionChanged="ListBlogPosts_SelectionChanged" Width="490">
 
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -35,28 +35,28 @@
                 </ListBox.ItemTemplate>
 
             </ListBox>
-            <TextBlock FontFamily="Corbel" Text="Name" Padding="10, 0" FontSize="15px" FontWeight="Heavy" Margin="611,335,233,0" Height="22" TextAlignment="Center" VerticalAlignment="Top"/>
-            <TextBox x:Name="TextBlogName" Padding="10, 0" FontSize="20px" Margin="619,353,35,0" Height="34" VerticalAlignment="Top"/>
+            <TextBlock FontFamily="Corbel" Text="Name" Padding="10, 0" FontSize="15px" FontWeight="Heavy" Margin="591,335,253,0" Height="22" TextAlignment="Center" VerticalAlignment="Top"/>
+            <TextBox x:Name="TextBlogName" Padding="10, 0" FontSize="20px" Margin="599,353,55,0" Height="34" VerticalAlignment="Top"/>
 
-            <TextBlock FontFamily="Corbel" Text="Description" Padding="10, 0" FontSize="15px" FontWeight="Heavy" Margin="611,395,203,0" Height="22" TextAlignment="Center" VerticalAlignment="Top"/>
-            <TextBox x:Name="TextBlogDescription" Padding="10, 0" FontSize="20px" Margin="619,414,35,0" Height="34" VerticalAlignment="Top"/>
+            <TextBlock FontFamily="Corbel" Text="Description" Padding="10, 0" FontSize="15px" FontWeight="Heavy" Margin="591,395,223,0" Height="22" TextAlignment="Center" VerticalAlignment="Top"/>
+            <TextBox x:Name="TextBlogDescription" Padding="10, 0" FontSize="20px" Margin="599,414,55,0" Height="34" VerticalAlignment="Top"/>
 
-            <Button FontFamily="Corbel" Content="Submit Changes" FontSize="18" Background="WhiteSmoke" FontWeight="Heavy" Margin="670,456,86,96" Click="UpdateBlog_Clicked"/>
+            <Button FontFamily="Corbel" Content="Submit Changes" FontSize="18" Background="WhiteSmoke" FontWeight="Heavy" Margin="650,456,106,96" Click="UpdateBlog_Clicked"/>
 
             <!-- post editing -->
-            <Button FontFamily="Corbel"  Content="ADD NEW POST" FontSize="18" Background="WhiteSmoke" FontWeight="Heavy" Margin="731,94,25,458" Click="AddPost_Clicked"/>
+            <Button FontFamily="Corbel"  Content="ADD NEW POST" FontSize="18" Background="WhiteSmoke" FontWeight="Heavy" Margin="711,94,45,458" Click="AddPost_Clicked"/>
 
-            <TextBlock FontFamily="Corbel" Text="Name" Padding="10, 0" FontSize="15px" FontWeight="Heavy" Margin="609,158,233,0" Height="22" TextAlignment="Center" VerticalAlignment="Top" />
-            <TextBox x:Name="TextPostName" Padding="10, 0" FontSize="20px" Margin="619,177,35,0" Height="34" VerticalAlignment="Top"/>
+            <TextBlock FontFamily="Corbel" Text="Name" Padding="10, 0" FontSize="15px" FontWeight="Heavy" Margin="589,158,253,0" Height="22" TextAlignment="Center" VerticalAlignment="Top" />
+            <TextBox x:Name="TextPostName" Padding="10, 0" FontSize="20px" Margin="599,177,55,0" Height="34" VerticalAlignment="Top"/>
 
-            <TextBlock FontFamily="Corbel" Text="Content" Padding="10, 0" FontSize="15px" FontWeight="Heavy" Margin="610,216,217,0" Height="22" TextAlignment="Center" VerticalAlignment="Top" />
-            <TextBox x:Name="TextPostContent" Padding="10, 0" FontSize="20px" Margin="619,234,35,0" Height="34" VerticalAlignment="Top"/>
+            <TextBlock FontFamily="Corbel" Text="Content" Padding="10, 0" FontSize="15px" FontWeight="Heavy" Margin="590,216,237,0" Height="22" TextAlignment="Center" VerticalAlignment="Top" />
+            <TextBox x:Name="TextPostContent" Padding="10, 0" FontSize="20px" Margin="599,234,55,0" Height="34" VerticalAlignment="Top"/>
 
-            <Button FontFamily="Corbel" Content="Create Post" FontSize="18" Background="WhiteSmoke" FontWeight="Heavy" Margin="670,276,86,276" Click="CreatePost_Clicked"/>
+            <Button FontFamily="Corbel" Content="Create Post" FontSize="18" Background="WhiteSmoke" FontWeight="Heavy" Margin="650,276,106,276" Click="CreatePost_Clicked"/>
 
-            <Button FontFamily="Corbel"  Content="DASHBOARD" FontSize="18" Background="WhiteSmoke" FontWeight="Heavy" Margin="751,523,35,31" Click="GoToDash_Clicked" />
-            <Button FontFamily="Corbel"  Content="BLOGS" FontSize="18" Background="WhiteSmoke" FontWeight="Heavy" Margin="619,523,163,31" Click="GotoPosts_Clicked" />
-            <Rectangle x:Name="RecHider" Fill="WhiteSmoke" HorizontalAlignment="Left" Height="188" VerticalAlignment="Top" Width="280" Margin="602,147,0,0"/>
+            <Button FontFamily="Corbel"  Content="DASHBOARD" FontSize="18" Background="WhiteSmoke" FontWeight="Heavy" Margin="731,523,55,31" Click="GoToDash_Clicked" />
+            <Button FontFamily="Corbel"  Content="BLOGS" FontSize="18" Background="WhiteSmoke" FontWeight="Heavy" Margin="599,523,183,31" Click="GotoPosts_Clicked" />
+            <Rectangle x:Name="RecHider" Fill="WhiteSmoke" HorizontalAlignment="Left" Height="183" VerticalAlignment="Top" Width="274" Margin="598,147,0,0"/>
 
         </Grid>
     </StackPanel>

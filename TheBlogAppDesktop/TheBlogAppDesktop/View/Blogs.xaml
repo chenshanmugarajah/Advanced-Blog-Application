@@ -11,9 +11,9 @@
         <Frame x:Name="_mainFrame" />
         <Grid Height="600" Width="900" Background="WhiteSmoke">
 
-            <Rectangle Fill="#ff6200" HorizontalAlignment="Left" Height="600" Stroke="Black" VerticalAlignment="Center" Width="558" Margin="342,0,0,0"/>
+            <Rectangle Fill="#E7717D" HorizontalAlignment="Left" Height="600"  VerticalAlignment="Center" Width="558" Margin="342,0,0,0"/>
             <TextBlock  FontFamily="Corbel" FontWeight="Heavy" Foreground="Black" Margin="51,35,706,503" Text="Blogs" />
-            <ListBox x:Name="ListAllBlogs" BorderBrush="White"  Margin="374,35,31,54" FontSize="30" SelectionChanged="ListMyBlogs_SelectionChanged" Background="#ff6200" Foreground="White" Padding="0, 10" >
+            <ListBox x:Name="ListAllBlogs" BorderBrush="White"  Margin="374,35,31,54" FontSize="30" SelectionChanged="ListMyBlogs_SelectionChanged" Background="#E7717D" Foreground="White" Padding="0, 10" >
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Orientation="Vertical"/>

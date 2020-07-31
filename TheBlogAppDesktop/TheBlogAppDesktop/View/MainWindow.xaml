@@ -9,7 +9,7 @@
     <StackPanel>
         <Frame x:Name="_mainFrame"/>
         <Grid Height="600" Width="900">
-            <Rectangle Fill="#ff6200" HorizontalAlignment="Center" Height="391" Margin="0,199,0,0" Stroke="Black" VerticalAlignment="Top" Width="900"/>
+            <Rectangle Fill="#E7717D" HorizontalAlignment="Center" Height="391" Margin="0,199,0,0"  VerticalAlignment="Top" Width="900"/>
             <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="312,44,0,0"><Run Text="Welcome "/><Run Language="en-gb" Text="T"/><Run Text="o"/></TextBlock>
             <TextBlock Text="TheeBlogApp" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="298,110,0,0"/>
             <Button Content="Sign in" Height="75px" FontSize="40px" Background="White" FontWeight="Heavy" Margin="337,274,347,250" Click="Button_Click"/>

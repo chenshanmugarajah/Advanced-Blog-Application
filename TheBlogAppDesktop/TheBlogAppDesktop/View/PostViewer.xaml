@@ -15,7 +15,7 @@
                 <TextBox x:Name="TextPostContent" FontSize="20" TextWrapping="Wrap" Background="WhiteSmoke"></TextBox>
             </ScrollViewer>
 
-            <Rectangle Fill="#ff6200" HorizontalAlignment="Left" Height="600" Stroke="Black" VerticalAlignment="Center" Width="558" Margin="342,0,0,0"/>
+            <Rectangle Fill="#E7717D" HorizontalAlignment="Left" Height="600" VerticalAlignment="Center" Width="558" Margin="342,0,0,0"/>
             <TextBlock FontWeight="Heavy" Foreground="Black" Margin="51,35,706,503" ><Run Language="en-gb" Text="Post"/></TextBlock>
             <TextBlock FontWeight="Heavy" Foreground="White" Margin="632,21,21,517" ><Run Language="en-gb" Text="Comments"/></TextBlock>
             <Button  Content="DASHBOARD" FontSize="18" Background="WhiteSmoke" FontWeight="Heavy" Margin="184,500,572,54" Click="GoToDash_Clicked" />
@@ -23,7 +23,7 @@
 
             <Button  Content="EDIT" FontSize="18" Background="WhiteSmoke" FontWeight="Heavy" Margin="104,427,652,127" Click="EditPost_Clicked" />
 
-            <ListBox x:Name="ListComments" BorderBrush="White"  Margin="374,88,31,163" FontSize="30" Background="#ff6200" Foreground="White" Padding="0, 10"/>
+            <ListBox x:Name="ListComments" BorderBrush="White"  Margin="374,88,31,163" FontSize="30" Background="#E7717D" Foreground="White" Padding="0, 10"/>
 
             <TextBlock x:Name="TextPostTitle" HorizontalAlignment="Left" FontSize="40" Margin="51,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="262"><Run Language="en-gb" Text="PostTitle"/></TextBlock>
             <TextBox x:Name="PostComment" HorizontalAlignment="Left" Margin="374,463,0,0" Text="Enter Comment" TextWrapping="Wrap" VerticalAlignment="Top" Width="359" Height="83" FontSize="25" />

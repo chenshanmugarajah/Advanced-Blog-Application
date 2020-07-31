@@ -11,7 +11,7 @@
         <Frame x:Name="_mainFrame" />
         <Grid Height="600" Width="900" Background="GhostWhite">
 
-            <Rectangle Fill="#ff6200" HorizontalAlignment="Left" Height="600" Stroke="Black" VerticalAlignment="Center" Width="634" Margin="266,0,0,0"/>
+            <Rectangle Fill="#E7717D" HorizontalAlignment="Left" Height="600" VerticalAlignment="Center" Width="634" Margin="266,0,0,0"/>
 
             <TextBlock  FontFamily="Corbel" FontWeight="Heavy" Margin="77,223,683,219" ><Run Language="en-gb" Text="Sign"/><LineBreak/><Run Language="en-gb" Text="  Up"/></TextBlock>
 

@@ -44,7 +44,7 @@ This project revolved around the using of the .NET core framework
 - Waiting till end of entire card to commit changes
 - Leaving tests till end of sprint
 
- ![Sprint1](sprint1_board.png)
+ ![Sprint1](spint1_board.png)
 
 ## Sprint 2
 - Implement CRUD functionality

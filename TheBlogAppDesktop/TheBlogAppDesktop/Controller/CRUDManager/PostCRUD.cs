@@ -58,11 +58,11 @@ namespace Controller
                 db.SaveChanges();
             }
         }
-        public void deletePost(int postid)
+        public void deletePost(string content)
         {
             using (var db = new BloggingContext())
             {
-                Post post = db.Posts.Where(p => p.PostId == postid).FirstOrDefault();
+                Post post = db.Posts.Where(p => p.Content == content).FirstOrDefault();
                 db.Remove(post);
                 db.SaveChanges();
             }

@@ -26,6 +26,14 @@ namespace Controller {
             }
             return Tuple.Create("Successfully Registered", true);
         }
+        public void deleteUser(string email)
+        {
+            using (var db = new BloggingContext())
+            {
+                ChennitUser cu = db.ChennitUsers.Where(cu => cu.Email == email).FirstOrDefault();
+                db.ChennitUsers.Remove(cu);
+            }
+        }
 
         public Tuple <string,bool> loginUser(string email, string password)
         {

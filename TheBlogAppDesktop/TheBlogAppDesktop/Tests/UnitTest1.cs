@@ -28,7 +28,7 @@ namespace Tests
         }
 
         [Test]
-        public void createExistingUserTest()
+        public void errorExistingUserTest()
         {
             using (var db = new BloggingContext())
             {
@@ -41,7 +41,7 @@ namespace Tests
         }
 
         [Test]
-        public void createExistingMsg()
+        public void errorExistingMsg()
         {
             using (var db = new BloggingContext())
             {
@@ -59,7 +59,6 @@ namespace Tests
             using (var db = new BloggingContext())
             {
                 cm.createUser("jamie", "jamie@gmail.com", "123", "123");
-                ChennitUser user = db.ChennitUsers.Where(cu => cu.Email == "jamie@gmail.com").FirstOrDefault();
                 cm.loginUser("jamie@gmail.com", "123");
 
                 int originalCount = db.Posts.Count();
@@ -70,6 +69,55 @@ namespace Tests
                 cm.deleteUser("jamie@gmail.com");
             }
         }
+
+        //[Test]
+        //public void createUserTest()
+        //{
+        //    using (var db = new BloggingContext())
+        //    {
+        //        int originalCount = db.ChennitUsers.Count();
+        //        cm.createUser("jamie", "jamie@gmail.com", "123", "123");
+        //        Assert.AreEqual(originalCount, db.ChennitUsers.Count());
+        //        cm.deleteUser("jamie@gmail.com");
+        //    }
+        //}
+
+        //[Test]
+        //public void errorExistingUserTest()
+        //{
+        //    using (var db = new BloggingContext())
+        //    {
+        //        int originalCount = db.ChennitUsers.Count();
+        //        cm.createUser("jamie", "jamie@gmail.com", "123", "123");
+        //        Tuple<string, bool> response = cm.createUser("jamie", "jamie@gmail.com", "123", "123");
+        //        Assert.AreEqual(response.Item2, false);
+        //        cm.deleteUser("jamie@gmail.com");
+        //    }
+        //}
+        //[Test]
+        //public void createUserTest()
+        //{
+        //    using (var db = new BloggingContext())
+        //    {
+        //        int originalCount = db.ChennitUsers.Count();
+        //        cm.createUser("jamie", "jamie@gmail.com", "123", "123");
+        //        Assert.AreEqual(originalCount, db.ChennitUsers.Count());
+        //        cm.deleteUser("jamie@gmail.com");
+        //    }
+        //}
+
+        //[Test]
+        //public void errorExistingUserTest()
+        //{
+        //    using (var db = new BloggingContext())
+        //    {
+        //        int originalCount = db.ChennitUsers.Count();
+        //        cm.createUser("jamie", "jamie@gmail.com", "123", "123");
+        //        Tuple<string, bool> response = cm.createUser("jamie", "jamie@gmail.com", "123", "123");
+        //        Assert.AreEqual(response.Item2, false);
+        //        cm.deleteUser("jamie@gmail.com");
+        //    }
+        //}
 
     }
 }

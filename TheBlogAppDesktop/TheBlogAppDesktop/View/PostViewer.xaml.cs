@@ -20,15 +20,16 @@ namespace View
     /// </summary>
     public partial class PostViewer : Page
     {
-        public PostViewer(Post post)
+        public PostViewer(Post post1)
         {
             InitializeComponent();
-            TextPostTitle.Text = post.Title;
-            TextPostContent.Text = post.Content;
+            TextPostTitle.Text = post1.Title;
+            TextPostContent.Text = post1.Content;
 
             CRUDManager cm = new CRUDManager();
-            ListComments.ItemsSource = cm.getPostComments(post.PostId);
-            this.post = post;
+            ListComments.ItemsSource = cm.getPostComments(post1.PostId);
+            this.post = post1;
+            postsLikes.Text = post.Likes.ToString();
         }
 
         public Post post { get; }
@@ -47,7 +48,6 @@ namespace View
         {
             CRUDManager cm = new CRUDManager();
             cm.createComment(post.PostId, PostComment.Text);
-            cm.likePost(post.PostId);
             ListComments.ItemsSource = cm.getPostComments(post.PostId);
         }
 
@@ -55,6 +55,13 @@ namespace View
         {
             CRUDManager cm = new CRUDManager();
             cm.updatePost(post.PostId, TextPostContent.Text);
+        }
+
+        private void LikePost_Clicked(object sender, RoutedEventArgs e)
+        {
+            CRUDManager cm = new CRUDManager();
+            cm.likePost(post.PostId);
+            postsLikes.Text = (post.Likes + 1).ToString();
         }
     }
 }

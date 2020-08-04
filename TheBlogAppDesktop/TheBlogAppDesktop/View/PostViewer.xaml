@@ -12,7 +12,7 @@
         <Grid Height="600" Width="900" Background="WhiteSmoke">
 
             <ScrollViewer Margin="0,152,531,185">
-                <TextBox x:Name="TextPostContent" FontSize="20" TextWrapping="Wrap" Background="WhiteSmoke"></TextBox>
+                <TextBox x:Name="TextPostContent" FontSize="20" BorderBrush="White" TextWrapping="Wrap" Background="WhiteSmoke"></TextBox>
             </ScrollViewer>
 
             <Rectangle Fill="#E7717D" HorizontalAlignment="Left" Height="600" VerticalAlignment="Center" Width="558" Margin="342,0,0,0"/>
@@ -21,7 +21,9 @@
             <Button  Content="DASHBOARD" FontSize="18" Background="WhiteSmoke" FontWeight="Heavy" Margin="184,500,572,54" Click="GoToDash_Clicked" />
             <Button  Content="BLOGS" FontSize="18" Background="WhiteSmoke" FontWeight="Heavy" Margin="23,500,734,54" Click="GotoPosts_Clicked" />
 
-            <Button  Content="EDIT" FontSize="18" Background="WhiteSmoke" FontWeight="Heavy" Margin="104,427,652,127" Click="EditPost_Clicked" />
+            <Button  Content="EDIT" FontSize="18" Background="WhiteSmoke" FontWeight="Heavy" Margin="23,434,733,120" Click="EditPost_Clicked" />
+
+            <Button  Content="LIKE" FontSize="18" Background="WhiteSmoke" FontWeight="Heavy" Margin="184,434,572,120" Click="LikePost_Clicked" />
 
             <ListBox x:Name="ListComments" BorderBrush="White"  Margin="374,88,31,163" FontSize="30" Background="#E7717D" Foreground="White" Padding="0, 10"/>
 
@@ -29,6 +31,10 @@
             <TextBox x:Name="PostComment" HorizontalAlignment="Left" Margin="374,463,0,0" Text="Enter Comment" TextWrapping="Wrap" VerticalAlignment="Top" Width="359" Height="83" FontSize="25" />
             <Button Content="POST" HorizontalAlignment="Left" FontSize="18" Background="WhiteSmoke" FontWeight="Heavy" Margin="743,463,0,0" VerticalAlignment="Top" Height="83" Width="126" Click="PostComment_Clicked"/>
 
+            <TextBlock x:Name="postsLikes" Text="0
+" FontWeight="Heavy" Foreground="Black" Margin="271,37,558,501" />
+            <Image Source="/Symbolic_Love_Heart.png" Margin="208,46,632,514"></Image>
         </Grid>
+        
     </StackPanel>
 </Page>

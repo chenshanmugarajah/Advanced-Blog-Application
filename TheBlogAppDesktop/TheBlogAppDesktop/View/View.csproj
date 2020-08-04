@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="background_image.jpg" />
+    <None Remove="Symbolic_Love_Heart.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +24,7 @@
 
   <ItemGroup>
     <Resource Include="background_image.jpg" />
+    <Resource Include="Symbolic_Love_Heart.png" />
   </ItemGroup>
 
 </Project>
